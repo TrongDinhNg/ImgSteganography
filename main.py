@@ -3,6 +3,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 from en_decrypt import Encrypt_Decrypt
+from DCT import ImgDCT
 
 class App:
     def __init__(self, master=None):
@@ -70,7 +71,7 @@ class App:
         self.page2_frame = tk.LabelFrame(master, text="Trang 2", font=("Arial", 24), width=500, height=500)
         self.page2_frame.pack(fill="both", padx=10, pady=10)
         # tạo nút mở ảnh
-        open_image_button = tk.Button(self.page2_frame, text="Mở ảnh có giấu tin", command=self.open_image2)
+        open_image_button = tk.Button(self.page2_frame, text="Mở ảnh có giấu tin", command=self.open_image3)
         open_image_button.pack(pady=10)
         # tạo một canvas để hiển thị ảnh
         self.canvas3 = tk.Canvas(self.page2_frame, width=200, height=200,background="blue")
@@ -111,7 +112,7 @@ class App:
         self.page2_frame.pack_forget()
 
     def encrypt(self):
-        pass
+        ImgDCT()
 
     def decrypt(self):
         pass
@@ -145,7 +146,7 @@ class App:
             # giữ một tham chiếu đến ảnh để ngăn việc ảnh bị xóa bởi garbage collector
             self.canvas1.image = photo
 
-    def open_image2(self):
+    def open_image3(self):
         # hiển thị hộp thoại chọn file
         file_path = filedialog.askopenfilename()
         # nếu người dùng đã chọn một file
@@ -171,7 +172,7 @@ class App:
             # giữ một tham chiếu đến ảnh để ngăn việc ảnh bị xóa bởi garbage collector
             self.canvas3.image = photo
 
-    
+
 
 if __name__ == "__main__":
     root = tk.Tk()
