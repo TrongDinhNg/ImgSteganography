@@ -170,6 +170,7 @@ class App:
             self.canvas3.create_image(0, 0, image=photo, anchor=tk.NW)
             # giữ một tham chiếu đến ảnh để ngăn việc ảnh bị xóa bởi garbage collector
             self.canvas3.image = photo
+    
         
 if __name__ == "__main__":
     root = tk.Tk()
